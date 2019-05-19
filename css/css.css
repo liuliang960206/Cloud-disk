@@ -695,3 +695,13 @@ html,body{
 	margin: 0;
 	color: red;
 }
+
+#box1{
+	width:0;
+	height: 0;
+	background: rgba(189, 189, 189, 0.3);
+	border: 1px dashed blue;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
