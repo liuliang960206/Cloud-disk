@@ -1,6 +1,7 @@
 class Folders {
     constructor(data, id) {
         this.data = data;
+        console.log(data)
         this.folders = document.querySelector('.folders');
         this.render(id);
         this.breadNav();
