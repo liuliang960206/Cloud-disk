@@ -10,6 +10,7 @@ function render(id) {
             // 初始化数据（pid=0的三项)
             const div = document.createElement('div');
             div.className = 'file-item';
+            div.dataset.id = item.id;//把当前数组循环的每一项的id存成自定义属性，后面方便调用id
             const img = document.createElement('img');
             img.src = 'img/folder-b.png';
             const span = document.createElement('span');
@@ -18,6 +19,9 @@ function render(id) {
             const input = document.createElement('input');
             input.className = 'editor';
             const is = document.createElement('i');
+            is.className = 'checked';
+            // is.className = item.checked?'checked':'';
+            // 判断，每一个小框是否打钩 ???
             folders.append(div);
             div.append(img, span, input, is);
 
@@ -37,11 +41,13 @@ function render(id) {
                     folders.innerHTML = ''
                     fEmpty.style.display = 'block';
                 }
-            }
-
+                globalId = item.id;
+                //此处的item.id获取的是每一项的id，赋值给全局变量globleId
+                renderBreadNav();
+                //每次双击图片进入下一级菜单之后，再渲染面包屑导航
+            };
         })
     }
-
 }
 render(0);
 

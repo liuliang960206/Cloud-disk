@@ -16,6 +16,7 @@ let tools = (function () {
         return ary
     };
 
+    // 动画库
     var Tween = {
         linear: function (t, b, c, d){  //匀速
             return c*(t/d) + b;
@@ -148,6 +149,7 @@ let tools = (function () {
         }
     }
 
+    // 运动
     function startMove(opts) {
         let opt = {
             obj: null,
@@ -219,8 +221,67 @@ let tools = (function () {
         })();
     }
 
+    // 获取data父级元素
+    function getParent(id){
+        if(!data[id] || data[id].pid === -1)return null;
+        return data[data[id].pid];
+    }
+
+    // 获取本身其祖先元素
+    function getParents(id){
+        let arr = [];
+        let now = data[id];
+        while(now){
+            arr.unshift(now);
+            now = getParent(now.id)
+        }
+        return arr;
+    }
+    
+    /* 
+        获取元素的绝对位置：
+        1.top = 元素外边框距离定位父级的距离 + 元素边框
+        2.元素成为定位父级，重复操作1
+        3.减掉元素本身边框距离
+    */
+    function position(ele){
+        let obj = ele,
+        top = 0,left = 0;
+        while(obj){
+            top += obj.offsetTop + obj.clientTop;
+            left += obj.offsetLeft + obj.clientLeft;
+            obj = obj.offsetParent;
+        }
+        top -= ele.clientTop;
+        left -= ele.clientLeft;
+        return {top,left}
+    }
+
+    function collision(obj,obj2){
+        let l1 = obj.offsetLeft;
+        let t1 = obj.offsetTop;
+        let r1 = l1 + obj.offsetWidth;
+        let b1 = t1 + obj.offsetHeight;
+
+        let l2 = obj2.offsetLeft;
+        let t2 = obj2.offsetTop;
+        let r2 = l2 + obj2.offsetWidth;
+        let b2 = t2 + obj2.offsetHeight;
+
+        //只要碰到就返回true，否则false
+        if(r1 < l2 || b1 < t2 || l1 > r2 || t1 > b2){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     return {
         getChild,
-        startMove
+        startMove,
+        getParent,
+        getParents,
+        position,
+        collision
     }
 })();

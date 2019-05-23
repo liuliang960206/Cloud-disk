@@ -1,5 +1,7 @@
-let { getChild } = tools;
+let { startMove,getChild } = tools;
 create.onclick = function () {
+    // 在空白页新建文件夹要先清除无文件图片
+    fEmpty.style.display = 'none';
     const div = document.createElement('div');
     div.className = 'file-item';
     const img = document.createElement('img');
@@ -46,37 +48,34 @@ create.onclick = function () {
             }
         }
         render(globalId);
-        fullTipBox.style.top = 0 + 'px';
-        startMove({
-            obj:fullTipBox,
-            json:{
-                top:0
-            },
-            durtion:500,
-            fx:'linear',
-            cb(){
-                setTimeout(()=>{
-                    startMove({
-                        obj:fullTipBox,
-                        json:{
-                            top:-40
-                        },
-                        durtion:300
-                    })
-                })
-            }
-        });
+        
+        // 新建文件夹提示框匀速运动
+        function topTip(val){
+            fullTipBox.innerHTML = val;
+            startMove({
+                obj:fullTipBox,
+                json:{
+                    top:0
+                },
+                durtion:500,
+                fx:'linear',
+                cb(){
+                    setTimeout(()=>{
+                        startMove({
+                            obj:fullTipBox,
+                            json:{
+                                top:-40
+                            },
+                            durtion:500
+                        })
+                    },1000)
+                }
+            });
+        };
+        topTip('新建文件夹成功');
     }
 }
 
-    
-
-// document.onclick = function(){
-//     input.style.display = 'none';
-//     const span = document.createElement('span');
-//     span.className = 'folder-name';
-//     span.innerHTML = '新建文件夹';
-// }
 
 
 

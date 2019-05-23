@@ -4,14 +4,14 @@ var data = {
         "pid": -1,
         "title": "微云",
         "type": "file",
-        "checked":false
+        "checked":true
     },
     "1": {
         "id": 1,
         "pid": 0,
         "title": "我的文档",
         "type": "file",
-        "checked":true
+        "checked":false
     },
     "2": {
         "id": 2,
