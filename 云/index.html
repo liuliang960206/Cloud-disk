@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/css.css" />
 </head>
 
-<body id="body">
+<body>
     <div id="box">
         <header id="head">
             <div id="top">
@@ -72,8 +72,8 @@
                             </li>
                         </ul>
                     </li> -->
-                <!-- 以下 左tree 是展开 -->
-                <!-- <li>
+                    <!-- 以下 左tree 是展开 -->
+                    <!-- <li>
                         <div class="tree-title tree-ico open">
                             <span><i></i>微云</span>
                         </div>
@@ -139,9 +139,9 @@
                                     <span><i></i>123</span>
                                 </div>
                             </li>
-                        </ul>
-                    </li> -->
-                <!-- </ul> -->
+                        </ul> -->
+                    </li>
+                </ul>
             </div>
             <div class="folder-content">
                 <div class="breadmenu">
@@ -213,17 +213,71 @@
         </div>
     </div>
     <script src="js/sql/data.js"></script>
-    <script src="js/tools/tools_2.0.js"></script>
-    <script src="js/style/style.js"></script>
-    <script src="js/folders/folders.js"></script>
-    <script src="js/folders/create.js"></script>
-    <script src="js/folders/breadmenu.js"></script>
-    <script src="js/folders/marquee.js"></script>
-    <script src="js/folders/checkedAll.js"></script>
-    <script src="js/folders/rename.js"></script>
-    <script src="js/folders/delete.js"></script>
-    <script src="js/folders/treemenu.js"></script>
-    <script src="js/folders/remove.js"></script>
+    <script src="./js/tools/tools_2.0.js"></script>
+    <script src="./js/style/style.js"></script>
+    <script src="./js/tree/tree.js"></script>
+    <script src="./js/folders/folders.js"></script>
+    <script src="./js/folders/create.js"></script>
+    <script src="./js/folders/kuang.js"></script>
+    <script src="./js/folders/checkedall.js"></script>
+    <script src="./js/folders/rename.js"></script>
+    <script src="./js/folders/dele.js"></script>
+    <script src="./js/folders/move.js"></script>
+    <script src="./js/breadNav/breadNav.js"></script>
+    
+
+   
+   
+    <!-- <script src="js/tree.js"></script> -->
+    
+
+    <script>
+        /*
+        如果你把云做好，你就走进了顺利就业的那30%的人群中。
+    */
+        /*
+            [
+                {
+                    name:'微云',
+                    children:[
+                        {
+                            name:'我的音乐',
+                            
+                        },
+                        {
+                            name:'我的文档'，
+                            children:[
+                                {},{},{}
+                            ]
+                        }
+                    ]
+                }
+            ]
+
+            {
+                "0":{
+                    id:0,
+                    name:'微云',
+                    pid:-1
+                },
+                "1":{
+                    id:1,
+                    name:'我的音乐',
+                    pid:0
+                },
+                "2":{
+                    id:2,
+                    name:'我的文档',
+                    id:0
+                },
+                "3":{
+                    id:3,
+                    name:'我的爱好',
+                    pid:0
+                }
+            }
+        */
+    </script>
 </body>
 
 </html>

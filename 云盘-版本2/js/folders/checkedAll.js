@@ -1,8 +1,8 @@
-checkedAll.onclick = function(){
+checkedAll.onclick = function () {
+    let bool = checkedAll.classList.toggle('checked');
     let ary = getChild(globalId);
     ary.forEach(item => {
-        if(item.checked === 'true'){
-            checkedAll.classList.toggle('checked');
-        }
+        item.checked = bool ? true : false;
     });
+    render(globalId)
 }
